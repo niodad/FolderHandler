@@ -1,0 +1,48 @@
+﻿<Window x:Class="WpfUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfUI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer Grid.Row="2" Grid.ColumnSpan="5">
+            <TextBlock  Name="Info" Margin="10"></TextBlock>
+        </ScrollViewer>
+       
+        <Button Grid.Column="1" Grid.Row="1"  Margin="10,0,10,0"  Click="GetInputFile">
+            <TextBlock Margin="5,0">Select File</TextBlock>
+        </Button>
+
+        <Button Grid.Column="2" Grid.Row="1"  Margin="10,0,10,0"  Click="GetSourceFolder">
+            <TextBlock Margin="5,0">Source</TextBlock>
+        </Button>
+        
+        <Button Grid.Column="3" Grid.Row="1"  Margin="10,0,10,0"  Click="GetTargetFolder" >
+            <TextBlock Margin="5,0">Target</TextBlock>
+        </Button>
+
+        <Button Name="ButtonCopy" Grid.Column="4" Grid.Row="1" Margin="10,0,10,0" IsEnabled="False"  Click="CopyFiles">
+            <TextBlock x:Name="btnCopy" Margin="5,0">Copy</TextBlock>
+        </Button>
+        <ComboBox Grid.Column="5" Grid.Row="1" x:Name="cmbDirectorySearchoptions"  ItemsSource="{Binding Source={StaticResource SearchOption}}" SelectedIndex="0">
+        </ComboBox>
+
+    </Grid>
+</Window>
